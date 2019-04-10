@@ -4,8 +4,8 @@ html {
 
 body {
     padding: 0;
-    font-family: 'Inconsolata', monospace;
-    background-color: #eede99;
+    font-family: 'Oswald', sans-serif;
+    background-color: #d8d8d8;
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
@@ -61,10 +61,10 @@ body {
     transition-delay: 0;
 }
 #firstq input[type="radio"]:not(:checked) + img{
-    opacity: .6;
+    opacity: .7;
 }
 #firstq input[type="radio"]:checked + img {
-    width: 275px;
+    width: 325px;
     box-shadow: 2px 2px 2px #7a7a7a;
     transition-property: box-shadow;
     transition-duration: .1s;
@@ -99,7 +99,7 @@ body {
     opacity: .6;
 }
 #secondq input[type="radio"]:checked + img {
-    width: 275px;
+    width: 325px;
     box-shadow: 2px 2px 2px #7a7a7a;
     transition-property: box-shadow;
     transition-duration: .1s;
@@ -134,7 +134,7 @@ body {
     opacity: .6;
 }
 #thirdq input[type="radio"]:checked + img {
-    width: 275px;
+    width: 325px;
     box-shadow: 2px 2px 2px #7a7a7a;
     transition-property: box-shadow;
     transition-duration: .1s;
@@ -169,7 +169,7 @@ body {
     opacity: .6;
 }
 #fourthq input[type="radio"]:checked + img {
-    width: 275px;
+    width: 325px;
     box-shadow: 2px 2px 2px #7a7a7a;
     transition-property: box-shadow;
     transition-duration: .1s;
@@ -204,7 +204,7 @@ body {
     opacity: .6;
 }
 #fifthq input[type="radio"]:checked + img {
-    width: 275px;
+    width: 325px;
     box-shadow: 2px 2px 2px #7a7a7a;
     transition-property: box-shadow;
     transition-duration: .1s;
@@ -250,6 +250,51 @@ body {
 .answer{
     position: relative;
 }
+#answer1{
+    position: relative;
+}
+#answer2{
+    position: relative;
+}
+#answer3{
+    position: relative;
+}
+#answer4{
+    position: relative;
+}
+#answer5{
+    position: relative;
+}
+#answer6{
+    position: relative;
+}
+#answer7{
+    position: relative;
+}
+#answer8{
+    position: relative;
+}
+#answer9{
+    position: relative;
+}
+#answer10{
+    position: relative;
+}
+#answer11{
+    position: relative;
+}
+#answer12{
+    position: relative;
+}
+#answer13{
+    position: relative;
+}
+#answer14{
+    position: relative;
+}
+#answer15{
+    position: relative;
+}
 .answers span img{
     margin: 0;
     padding: 0;
@@ -278,7 +323,7 @@ input[type=radio] {
     transition-delay: 0;
 }
 #submit{
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Oswald', sans-serif;
     font-size: 100%;
     color: #EEEEEE;
     box-sizing: border-box;
@@ -291,6 +336,9 @@ input[type=radio] {
 }
 
 #rm {
+    animation-duration: 3s;
+    animation-name: wiggle;
+    animation-iteration-count: infinite;
     position: relative;
 }
 
@@ -299,6 +347,9 @@ input[type=radio] {
 }
 
 #rc {
+    animation-duration: 3s;
+    animation-name: wiggle;
+    animation-iteration-count: infinite;
     position: relative;
 }
 
@@ -307,6 +358,9 @@ input[type=radio] {
 }
 
 #rh {
+    animation-duration: 3s;
+    animation-name: wiggle;
+    animation-iteration-count: infinite;
     position: relative;
 }
 
@@ -369,6 +423,53 @@ input[type=radio] {
     transition-timing-function: linear;
     transition-delay: 0;
 }
+#error{
+    animation-duration: 3s;
+    animation-name: wiggle;
+    animation-iteration-count: infinite;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+@keyframes wiggle {
+    0% {
+      transform: translate(0,0);
+    }
+    33% {
+      transform: translate(100px,0);
+    }
+    66% {
+        transform: translate(-100px,0);
+    }
+    100% {
+        transform: translate(0,0);
+    }
+}
+#error img{
+    box-shadow: 4px 4px 4px #494949;
+}
+#error img:hover{
+    box-shadow: 7px 7px 7px #494949;
+    transition-property: box-shadow;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+    transition-delay: 0;
+}
+#error h3{
+    box-shadow: 2px 2px 2px #494949;
+    top: 300px;
+    position: absolute;
+    background-color: #ffffff;
+    font-size: 200%;
+}
+#error h3:hover{
+    box-shadow: 7px 7px 7px #494949;
+    transition-property: box-shadow;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+    transition-delay: 0;
+}
 
 @media only screen and (max-width: 640px) {
     #htext{
@@ -417,5 +518,8 @@ input[type=radio] {
         transition-duration: .1s;
         transition-timing-function: linear;
         transition-delay: 0;
+    }
+    #error img{
+        width: 100%;
     }
 }

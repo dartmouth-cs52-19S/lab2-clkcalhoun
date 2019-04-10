@@ -7,25 +7,102 @@ $('#rh').hide();
 $('#rc').hide();
 $('#rm').hide();
 $('#scroll').hide();
+$('#error').hide();
+
+$("#answer1").click(function(){
+    $( "#answer1" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer2" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer3" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer2").click(function(){
+    $( "#answer2" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer1" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer3" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer3").click(function(){
+    $( "#answer3" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer2" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer1" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer4").click(function(){
+    $( "#answer4" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer5" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer6" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer5").click(function(){
+    $( "#answer5" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer4" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer6" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer6").click(function(){
+    $( "#answer6" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer4" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer5" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer7").click(function(){
+    $( "#answer7" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer8" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer9" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer8").click(function(){
+    $( "#answer8" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer7" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer9" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer9").click(function(){
+    $( "#answer9" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer7" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer8" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer10").click(function(){
+    $( "#answer10" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer11" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer12" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer11").click(function(){
+    $( "#answer11" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer10" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer12" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer12").click(function(){
+    $( "#answer12" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer10" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer11" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer13").click(function(){
+    $( "#answer13" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer14" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer15" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer14").click(function(){
+    $( "#answer14" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer13" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer15" ).fadeTo( "slow" , 0.3, function() { });
+});
+$("#answer15").click(function(){
+    $( "#answer15" ).fadeTo( "slow" , 1, function() { });
+    $( "#answer13" ).fadeTo( "slow" , 0.3, function() { });
+    $( "#answer14" ).fadeTo( "slow" , 0.3, function() { });
+});
+
 
 $('#submit').on('click', function(e) {
-    // gather all checked radio-button values
     hammond = 0;
     clarkson = 0;
     may = 0;
     var choices = $("input[type='radio']:checked").map(function(i, radio) {
         return $(radio).val();
     }).toArray();
-    // now you have an array of choices = ["valueofradiobox1", "valueofradiobox2", "valueofradiobox2"]
-    // you'll need to do some calculations with this
-    // a naive approach would be to just choose the most common option - seems reasonable
     choices.forEach(check);
 
     // console.log("hammond " + hammond);
     // console.log("clarkson " +clarkson);
     // console.log("may " +may);
 
-    if (hammond == clarkson && clarkson == may && may == hammond){
+    if(choices.length < 5){
+        $('#error').show();
+    }
+    else if (hammond == clarkson && clarkson == may && may == hammond){
         $('#rh').hide();
         $('#rc').hide();
         $('#rm').hide();
@@ -34,18 +111,21 @@ $('#submit').on('click', function(e) {
         if (hammond >= clarkson && hammond >= may){
             $('#rh').show();
             $('#scroll').show();
+            $('#error').hide();
         }else{
             $('#rh').hide();
         }
         if (clarkson > hammond && clarkson >= may){
             $('#rc').show();
             $('#scroll').show();
+            $('#error').hide();
         }else{
             $('#rc').hide();
         }
         if (may > clarkson && may > hammond){
             $('#rm').show();
             $('#scroll').show();
+            $('#error').hide();
         }else{
             $('#rm').hide();
         }
